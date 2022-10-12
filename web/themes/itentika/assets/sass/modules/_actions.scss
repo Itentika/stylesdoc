@@ -1,0 +1,42 @@
+.Actions {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 rem(-8);
+
+  @media screen and (max-width: $tabletWidth) {
+    justify-content: flex-start;
+  }
+
+  &__title {
+    color: var(--ActionsTextColor);
+    font-size: rem(16);
+    font-weight: 700;
+    line-height: rem(24);
+    margin: 0 rem(8);
+  }
+}
+
+.Action {
+  color: var(--ActionsTextColor);
+  font-size: rem(16);
+  line-height: rem(24);
+  margin: 0 rem(8);
+
+  .pseudoLink {
+    color: inherit;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  // &.active {
+  //   .pseudoLink {
+  //     text-decoration: underline;
+  
+  //     &:hover {
+  //       text-decoration: none;
+  //     }
+  //   }
+  // }
+}

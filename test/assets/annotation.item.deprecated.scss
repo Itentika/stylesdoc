@@ -1,0 +1,29 @@
+////
+/// Test cases for testing @deprecated
+/// Allowed on mixins, functions, placeholders, variables and use
+/// Multiple: false
+/// Defines if the documented item is deprecated
+////
+
+/// @deprecated descrition of why the item is deprecated
+/// @group should be ignored
+@mixin example-mixin {
+}
+
+/// @deprecated descrition of why the item is deprecated
+/// @group should be ignored
+@function example-function() {
+}
+
+/// @deprecated descrition of why the item is deprecated
+/// @group should be ignored
+%example-placeholder {
+}
+
+/// @deprecated descrition of why the item is deprecated
+/// @group should be ignored
+$example-variable: #000
+
+/// @deprecated descrition of why the item is deprecated
+/// @group should be ignored
+@use "src/testing" as test_namespace

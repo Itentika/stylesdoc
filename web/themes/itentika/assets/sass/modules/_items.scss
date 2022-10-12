@@ -1,0 +1,159 @@
+.Item {
+  & + & {
+    margin-top: rem(40);
+
+    @media screen and (max-width: $desktopWidth) {
+      margin-top: rem(25);
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    @media screen and (max-width: $desktopWidth) {
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__name {
+    @include Title(rem(28), rem(32));
+    margin-right: auto;
+
+    @media screen and (max-width: $desktopWidth) {
+      width: 100%;
+      font-size: rem(24);
+      line-height: rem(28);
+      margin-bottom: rem(10)
+    }
+
+    @media screen and (max-width: $smDesktopWidth) {
+      font-size: rem(22);
+      line-height: rem(28);
+    }
+  }
+
+  &__heading {
+    margin-top: rem(40);
+    margin-bottom: rem(40);
+
+    @media screen and (max-width: $desktopWidth) {
+      margin-bottom: rem(25);
+    }
+  }
+
+  &__subHeading {
+    @include Title(rem(28), rem(32), 400);
+    margin-top: rem(40);
+    margin-bottom: rem(16);
+
+    @media screen and (max-width: $desktopWidth) {
+      font-size: rem(24);
+      line-height: rem(28);
+      margin-top: rem(24);
+    }
+
+    @media screen and (max-width: $smDesktopWidth) {
+      font-size: rem(22);
+      line-height: rem(28);
+    }
+  }
+
+  &__deprecated {
+    margin-left: rem(6);
+
+    span {
+      color: #c00;
+      font-weight: 700;
+      font-size: rem(22);
+      text-transform: uppercase;
+
+      @media screen and (max-width: $desktopWidth) {
+        font-size: rem(18);
+      }
+  
+      @media screen and (max-width: $smDesktopWidth) {
+        font-size: rem(16);
+      }
+    }
+  }
+  
+  &__access {
+    margin-right: rem(6);
+  }
+
+  &__access,
+  &__deprecated {
+    font-size: rem(24);
+    font-weight: 500;
+
+    @media screen and (max-width: $desktopWidth) {
+      font-size: rem(20);
+    }
+
+    @media screen and (max-width: $smDesktopWidth) {
+      font-size: rem(18);
+    }
+  }
+
+  &__snippet {
+    background-color: var(--SnippetBG);
+    border-left: 9px solid var(--SnippetBorderColor);
+  }
+
+  &__code {
+    direction: ltr;
+    text-align: left;
+    white-space: nowrap;
+    padding: rem(17);
+    margin: 0;
+    overflow: auto;
+  }
+
+  &__description {
+    font-size: rem(16);
+    line-height: rem(24);
+  }
+
+  &__parameters {
+    position: relative;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  &__table {
+    table-layout: fixed;
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    min-width: 768px;
+
+    th {
+      border-bottom: 1px solid $mainFontColor;
+      font-size: rem(18);
+      line-height: rem(21);
+      padding: 0 rem(10) rem(24) 0;
+    }
+
+    td {
+      padding: rem(30) rem(10) rem(30) 0;
+    }
+
+    td + td,
+    th + th {
+      padding-left: rem(10);
+    }
+
+    th, td {
+      text-align: left;
+    }
+
+    tr + tr {
+      td {
+        border-top: 1px solid rgba(22, 23, 37, .16);
+      }
+    }
+  }
+}

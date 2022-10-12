@@ -1,0 +1,15 @@
+<h3 class="Item__subHeading">Aliased</h3>
+<div class="Item__description">
+  <ul class="UsedBy">
+    {{ range .aliasedGroup }}
+      <li class="See__item">
+        <strong>[{{ .type }}]</strong>
+        {{ if .group }}
+          <a href="#{{ .group }}-{{ .type }}-{{ .name }}">{{ .name }}</a>
+        {{ else }}
+          <a href="javascript:void(0);" class="disabled">{{ .name }}</a>
+        {{ end }}
+      </li>
+    {{ end }}
+  </ul>
+</div>

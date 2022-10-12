@@ -1,0 +1,33 @@
+.shevron {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 32px;
+  height: 32px;
+  top: -1px;
+
+  &:before {
+    content: '';
+    display: inline-block;
+    border-style: solid;
+    border-width: 2px 2px 0 0;
+    border-color: var(--ShevronClosedColor);
+    height: 12px;
+    width: 12px;
+    transform: rotate(45deg);
+    position: absolute;
+    left: 7px;
+  }
+}
+
+.Icon {
+  &--arrow {
+    position: relative;
+    z-index: 2;
+
+    path {
+      stroke: var(--SidebarBottomArrowColor);
+    }
+  }
+}

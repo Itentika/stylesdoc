@@ -1,0 +1,45 @@
+////
+/// Test cases for testing @name
+/// Allowed on mixins, functions, placeholders, variables and use
+/// Multiple: false
+/// Replaces context.name with value that goes after @name
+////
+
+/// @name override-name
+/// @name ignored-because-no-multiple-allowed
+@mixin example-mixin {
+  margin: 0;
+  padding: 0;
+}
+
+/// @name override-name
+/// @name ignored-because-no-multiple-allowed
+@function example-function() {}
+
+/// @name override-name
+/// @name ignored-because-no-multiple-allowed
+%example-placeholder {}
+
+/// @name override-name
+/// @name ignored-because-no-multiple-allowed
+$example-variable: #000
+
+/// @name override-name
+/// @name ignored-because-no-multiple-allowed
+@use "src/testing" as test_namespace;
+
+
+/// Ignored because of empty value
+/// @name 
+@function example-function() {}
+
+
+///
+/// @alias example-function3
+/// @name new-name
+@function example-function2() {}
+
+///
+/// @require example-function2
+/// @see example-function2
+@function example-function3() {}

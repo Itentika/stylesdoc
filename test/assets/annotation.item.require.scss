@@ -1,0 +1,66 @@
+////
+/// Test cases for testing @require
+/// Allowed on functions, mixins, placeholders and variables.
+/// Multiple: true
+/// @group main
+////
+
+/// @require example-function - This is a description, prefixed by dash.
+/// @require {mixin} example-mixin This is a description with no dash.
+/// @require $example-variable
+/// @require %example-placeholder This is a internal description, so link is omitted in result. <http://sassdoc.com>
+/// @require this::is::an::external::dependancy - External dependency with double colon <"http://github.com">
+/// @require this:is:an:external:dependancy - External dependency with single colon <'http://github.com'>
+/// @require this/is/an/external/dependancy - External dependency with slash <http://github.com>
+/// @require {variable} this.is.an.external.dependancy - External dependency with dot <http://github.com>
+/// @require {placeholder} %non-existing-placeholder - Should be ignored
+@function source() {}
+
+/// @require {variable} some.external.dependancy
+/// @require {mixin} example-mixin - documented item, takes precedence over autofilled
+@mixin example-mixin-autofilled {
+    @include autofilled-mixin; // autofilled mixins
+    @include autofilled-mixin; // should ignored - no duplicates
+
+    @include example-mixin(); // should be ignored: there is same item in documentation
+    @include example-mixin(); // should be ignored: there is same item in documentation
+    @include non-existing-mixin; // should be ignored: there is same item in documentation
+
+    @extend %example-placeholder;
+    @extend %example-placeholder-2;
+    @extend %example-placeholder-2; // should ignored - no duplicates
+
+    color: example-function("#000");
+    color: example-function-2("#000");
+    color: example-function-2("#000"); // should ignored - no duplicates
+
+    font: $example-variable;
+    font: $example-variable-2; 
+    font: $example-variable-2; // should ignored - no duplicates
+}
+
+/// @require source
+/// @group group1
+@mixin example-mixin {}
+
+/// To be used for testing autofill
+@mixin autofilled-mixin {}
+
+/// @require source
+/// @group group2
+@function example-function() {}
+
+/// To be used for testing autofill 
+@function example-function-2() {}
+
+/// @require source
+$example-variable: value1;
+
+/// To be used for testing autofill 
+$example-variable-2: value2;
+
+/// @require source
+%example-placeholder {}
+
+/// To be used for testing autofill 
+%example-placeholder-2 {}

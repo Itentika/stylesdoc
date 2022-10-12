@@ -1,0 +1,28 @@
+////
+/// Test cases for testing @author
+/// Allowed on mixins, functions, placeholders, variables and use
+/// Multiple: true
+////
+
+/// @author John Doe
+/// @author Foo Bar
+@mixin example-mixin {
+}
+
+/// @author John Doe
+/// @author Foo Bar
+@function example-function() {
+}
+
+/// @author John Doe
+/// @author Foo Bar
+%example-placeholder {
+}
+
+/// @author John Doe
+/// @author Foo Bar
+$example-variable: #000
+
+/// @author John Doe
+/// @author Foo Bar
+@use "src/testing" as test_namespace

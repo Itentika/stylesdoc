@@ -1,0 +1,49 @@
+////
+/// Test cases for testing "throw" annotation
+/// Allowed on functions, mixins and placeholders
+/// Multiple: true
+/// Format: @throw Error description goes here
+////
+
+/// @throw Error 1
+/// @throw Error 2
+@mixin example-mixin () {
+}
+
+/// @throw Error 1
+/// @throw Error 2
+@function example-function() {
+}
+
+/// @throw Error 1
+/// @throw Error 2
+%example-placeholder {
+}
+
+/// Testing autofill
+/// @throw Error from annotation
+@mixin example-mixin-autofilled () {
+    @error "Should be added as autofilled error description";
+}
+
+/// Testing autofill
+/// @throw Error from annotation
+@function example-function-autofilled () {
+    @error "Should be added as autofilled error description";
+}
+
+/// Testing autofill
+/// @throw Error from annotation
+%example-placeholder-autofilled  {
+    @error "Should be added as autofilled error description";
+}
+
+/// Testing uniqueness of autofilled error messages
+/// @throw Error from annotation
+%example-placeholder-autofilled  {
+    @error "Error from annotation";
+    @error "Other error";
+}
+
+/// @throw Should be ignored
+$example-variable: ();

@@ -1,0 +1,24 @@
+<h3 class="Item__subHeading">Requires</h3>
+<div class="Item__description">
+  <ul class="Requires">
+    {{ range .require }}
+      <li class="Require">
+        <strong>
+          {{ if eq .external true }}
+            [external]
+          {{ else }}
+            [{{ .type }}]
+          {{ end }}
+        </strong>
+        {{ if .group }}
+          <a href="#{{ .group }}-{{ .type }}-{{ .name }}">{{ .name }}</a>
+        {{ else }}
+          <a href="javascript:void(0);" class="disabled">{{ .name }}</a>
+        {{ end }}
+        {{ if .description }}
+          &mdash; {{ .description }}
+        {{ end }}
+      </li>
+    {{ end }}
+  </ul>
+</div>

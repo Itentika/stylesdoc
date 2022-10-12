@@ -1,0 +1,17 @@
+{{ if .deprecated }}
+  <span class="Badge Badge--deprecated">Deprecated</span>
+{{ end }}
+{{ if .lang }}
+  <span class="Badge Badge--lang {{ if (eq (lower .lang) "less") }}less{{ else if ( or (eq (lower .lang) "scss") (eq (lower .lang) "sass")) }}scss{{ end }}">{{ .lang }}</span>
+{{ end }}
+{{ if .since }}
+  <span class="Badge Badge--since">Since</span>
+  <span class="Badge Badge--since">{{ .since.version }}</span>
+  {{ if .since.description }}
+    {{ if not (eq .since.description "\n") }}
+      <div class="Badge Badge--since wrapper">
+        <button data-tooltip="{{ .since.description }}" class="Badge Badge--btn">&#8230;</button>
+      </div>
+    {{ end }}
+  {{ end }}
+{{ end }} 

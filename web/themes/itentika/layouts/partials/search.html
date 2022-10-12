@@ -1,0 +1,14 @@
+<div class="Search">
+  <form action="/" class="Search__form">
+    <div class="Search__group">
+      <div class="Search__icon">
+        {{- partial "images/Search.svg" . -}}
+      </div>
+      <input class="Search__field" placeholder="Search" type="search" name="search" / >
+      <div class="Search__icon close">
+        {{- partial "images/close.svg" . -}}
+      </div>
+    </div>
+  </form>
+  <ul class="Search__result"></ul>
+</div>

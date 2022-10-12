@@ -1,0 +1,21 @@
+<h3 class="Item__subHeading">Parameters</h3>
+<div class="Item__parameters">
+  <table class="Item__table">
+    <thead>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Default value</th>
+    </thead>
+    <tbody>
+      {{ range .parameter }}
+      <tr>
+        <td>{{ if .name }} {{ .name }} {{ else }} - {{ end }}</td>
+        <td>{{ if .description }} {{ .description }} {{ else }} - {{ end }}</td>
+        <td>{{ if .type }} {{ .type }} {{ else }} - {{ end }}</td>
+        <td>{{ if .default }} {{ .default }} {{ else }} - {{ end }}</td>
+      </tr>
+      {{ end }}
+    </tbody>
+  </table>
+</div>

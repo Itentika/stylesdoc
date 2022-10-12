@@ -1,0 +1,20 @@
+////
+/// This is a content for testing item annotations.
+////
+
+/// @content Some content description
+@mixin mixin-with-content {
+  * html {
+    @content;
+  }
+}
+
+///
+@mixin mixin-with-content-autofilled {
+  * html {
+    @content;
+  }
+}
+
+/// @content Should be ignored here
+@function np-content-here() {}

@@ -1,0 +1,24 @@
+//this comment should be ignored
+/// @access private
+/// @author author1
+	// this tabbed comment should be ignored
+/// @access public
+// this comment should be ignored
+/// @author author2
+@function func1() {
+    x = 0; // inline comment should be OK
+}
+
+/// @access private
+/// @author author3
+	// this comment should be ignored	
+// /// @access private (and should be ignored as double-slashed comment)
+// this comment should be ignored
+/// @author author4
+$example-variable: #000;
+
+/// @access private
+nav ul {
+  margin: 0;
+  list-style: none; // inline comment should be OK
+}

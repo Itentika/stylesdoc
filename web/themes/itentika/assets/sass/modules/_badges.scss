@@ -1,0 +1,98 @@
+.Badge {
+  border-radius: 4px;
+  color: $mainFontColor;
+  font-size: rem(16.4);
+  line-height: rem(24);
+  letter-spacing: .02em;
+  font-weight: 400;
+  padding: 4px rem(8);
+  max-height: 32px;
+
+  @media screen and (max-width: $phoneWidth) {
+    font-size: rem(15);
+    line-height: rem(22);
+    letter-spacing: .005em;
+  }
+
+  & + & {
+    margin-left: rem(24);
+
+    @media screen and (max-width: $phoneWidth) {
+      margin-left: rem(16);
+    }
+  }
+
+  &:first-letter {
+    text-transform: uppercase;
+  }
+
+  &--deprecated {
+    background-color: $badgeDericated;
+    color: #fff;
+  }
+
+  &--lang {
+    color: #fff;
+    text-transform: lowercase;
+
+    &.scss {
+      background-color: $badgeLangScss;
+    }
+
+    &.less {
+      background-color: $badgeLangLess;
+    }
+  }
+
+  &--since {
+    background-color: $badgeSince;
+
+    & + & {
+      margin-left: rem(8);
+    }
+
+    &.wrapper {
+      position: relative;
+      background-color: transparent;
+      padding: 0;
+
+      .tooltip {
+        background-color: $badgeSince;
+        border-radius: 8px;
+        padding: rem(8) rem(16);
+        width: max-content;
+        max-width: 240px;
+        position: absolute;
+        right: 0;
+        top: calc(100% + 12px);
+        z-index: 10;
+
+        &:after {
+          content: " ";
+          position: absolute;
+          bottom: calc(100% - 1px);
+          right: calc(0px + 8px);
+          border-width: 8px;
+          border-style: solid;
+          border-color: transparent transparent $badgeSince transparent;
+        }
+      }
+    }
+  }
+
+  &--btn {
+    background-color: $badgeSince;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    outline: none;
+
+    &:hover,
+    &:focus,
+    &.active {
+      background-color: $badgeBtnSinceHover;
+    }
+  }
+}

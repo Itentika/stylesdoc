@@ -1,0 +1,35 @@
+/// Pow function example 1
+@function pow($base, $exponent) {
+  $result: 1;
+  @for $_ from 1 through $exponent {
+    $result: $result * $base;
+  }
+  @return $result;
+}
+
+/// Pow function example 2
+@function empty($param1: 10, $param2: 10) {
+}
+
+/// Pow function example 3
+/// line 2
+/// line 3
+@function empty-long-Name() {
+}
+
+/// Pow function example 4
+@function column-width($index, $widths...) {
+  @return nth($widths, $index);
+}
+
+///
+@function empty-description() {}
+
+///   
+@function whitespace-description() {}
+
+///   
+///              
+///  
+///  
+@function whitespace-newlines-description() {}

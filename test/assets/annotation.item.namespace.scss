@@ -1,0 +1,33 @@
+////
+/// Test cases for testing @use
+/// Allowed on use
+/// Multiple: false
+////
+
+/// @namespace from_documentation
+/// @namespace should_be_ignored
+@use "src/subfolder/testing.scss" as from_sass;
+
+/// In this case namespace should be replaced with file name w/o extension
+/// @namespace anything
+@use "testing.scss";
+
+/// Also parsed without extension
+/// @namespace anything
+@use "some/test_namespace";
+
+/// @namespace test_namespace
+@mixin example-mixin () {
+};
+
+/// @namespace test_namespace
+@function example-function() {
+};
+
+/// @namespace test_namespace
+$example-variable: (
+);
+    
+/// @namespace test_namespace
+%example-placeholder {
+};

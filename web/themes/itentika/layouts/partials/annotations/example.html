@@ -1,0 +1,17 @@
+<h3 class="Item__subHeading">Examples</h3>
+{{ range .example }}
+  <div class="Item__example">
+    <div class="Example">
+      {{ if .description }}<div class="Example__description">{{ .description }}</div>{{ end }}
+      {{ if .code }}
+        <div class="Item__snippet">
+          <div class="Item__code">
+            <code class="language-scss">
+              {{ .code }}
+            </code>
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+{{ end}}

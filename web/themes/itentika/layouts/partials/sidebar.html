@@ -1,0 +1,34 @@
+<div class="Sidebar">
+  <div class="Sidebar__head">
+    <a href="#" title="AutoDOC Website" class="Logo">
+      {{- partial "images/Logo.svg" . -}}
+    </a>
+    <div class="Sidebar__toogle js-toogleMobileSidebar">
+      <span class="Sidebar__btn Sidebar__btn--open">
+        {{- partial "images/burger.svg" . -}}
+      </span>
+      <span class="Sidebar__btn Sidebar__btn--close">
+        {{- partial "images/close.svg" . -}}
+      </span>
+    </div>
+  </div>
+  <div class="Sidebar__box Sidebar__box--search">
+    {{- partial "search.html" . -}}
+  </div>
+  <div class="Sidebar__box Sidebar__box--actions">
+    {{- partial "actions.html" . -}}
+  </div>
+  <div class="Sidebar__box Sidebar__box--menu">
+    {{- partial "menu.html" . -}}
+  </div>
+  <div class="Sidebar__box Sidebar__box--bottom">
+    <button class="Btn js-toogleSidebar" type="button" name="hide">
+      {{- partial "images/arrow_left.svg" . -}}
+    </button>
+    {{ if eq .Site.Params.watermark "true" }}
+      <span class="textNode">
+        {{safeHTML .Site.Params.watermarkText }}
+      </span>
+    {{ end }}
+  </div>
+</div>

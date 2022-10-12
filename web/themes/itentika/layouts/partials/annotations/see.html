@@ -1,0 +1,18 @@
+<h3 class="Item__subHeading">See</h3>
+<div class="Item__description">
+  <ul class="See">
+    {{ range .see }}
+      <li class="See__item">
+        <strong>[{{ .context.type }}]</strong>
+        {{ if .group }}
+          <a href="#{{ .group }}-{{ .context.type }}-{{ .context.name }}">{{ .context.name }}</a>
+        {{ else }}
+          <a href="javascript:void(0);" class="disabled">{{ .context.name }}</a>
+        {{ end }}
+        {{ if .description }}
+          &mdash; {{ .description }}
+        {{ end }}
+      </li>
+    {{ end }}
+  </ul>
+</div>

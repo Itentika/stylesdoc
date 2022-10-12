@@ -1,0 +1,169 @@
+.Sidebar {
+  background-color: var(--SideBarBG);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 100%;
+
+  .Page--wide & {
+    @media screen and (min-width: $tabletWidth) {
+      &__box {
+        visibility: hidden;
+        opacity: 0;
+
+        &--bottom {
+          visibility: visible;
+          opacity: 1;
+
+          .textNode {
+            display: none;
+          }
+
+          .Btn {
+            transform: rotate(180deg);
+
+            &:after {
+              top: 21px;
+              transform: matrix(-1, 0, 0, -1, 0, 0);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .Page--expanded & {
+    @media screen and (max-width: $tabletWidth) {
+      &__box {
+        display: block;
+      }
+
+      &__btn {
+        &--close {
+          display: block;
+        }
+
+        &--open {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__toogle {
+    display: none;
+    width: 32px;
+    height: 32px;
+    position: relative;
+    
+    &:after {
+      @include BrandArrow;
+      bottom: 2px;
+      right: 2px;
+      transform: matrix(1, 0, 0, -1, 0, 0);
+    }
+
+    @media screen and (max-width:  $tabletWidth) {
+      display: inline-block;
+    }
+  }
+
+  &__btn {
+    cursor: pointer;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+
+    @media screen and (max-width: $tabletWidth) {
+      &--close {
+        display: none;
+      }
+    }
+  }
+
+  &__head {
+    background-color: var(--LogoBG);
+    padding: rem(24) rem(40);
+    line-height: 0;
+
+    @media screen and (max-width: $smDesktopWidth) {
+      padding: rem(24);
+    }
+
+    @media screen and (max-width:  $tabletWidth) {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__box {
+    padding: rem(24) rem(34);
+
+    &--actions {
+      padding-top: 0;
+    }
+
+    &--menu {
+      flex-grow: 1;
+      overflow-y: auto;
+      border-top: 1px solid var(--MenuBordersColor);
+      min-height: 200px;
+    }
+
+    &--bottom {
+      border-top: 1px solid var(--MenuBordersColor);
+      display: flex;
+      align-items: center;
+      flex-wrap: nowrap;
+
+      .textNode {
+        color: var(--ActionsTextColor);
+        margin-left: rem(32);
+
+        @media screen and (max-width: $tabletWidth) {
+          margin-left: 0;
+        }
+
+        a {
+          color: inherit;
+          text-decoration: underline;
+  
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+
+      .Btn {
+        position: relative;
+
+        &:after {
+          @include BrandArrow(var(--SidebarBrandArrowColor));
+          top: 10px;
+          right: 10px;
+          transform: matrix(-1, 0, 0, 1, 0, 0);
+        }
+
+        @media screen and (max-width: $tabletWidth) {
+          display: none;
+        }
+      }
+    }
+
+    @media screen and (max-width: $smDesktopWidth) {
+      padding: rem(24);
+
+      &--actions {
+        padding-top: 0;
+      }
+    }
+
+    @media screen and (max-width: $tabletWidth) {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+////
+/// Test cases for testing @return
+/// Allowed on functions
+/// Multiple: false
+///	Describes return statement of the documented function. 
+/// Type is required.
+////
+
+/// @return {number | string} This function returns number or string
+/// @return { any_type } This line is ignored because no multiple allowed
+@function example-function1() {}
+
+/// @returns {number | string} Testing alias
+@function example-function2() {}
+
+/// @return { any_type } Ignored for mixins
+@mixin example-mixin {
+  margin: 0;
+  padding: 0;
+}
+
+/// @return { any_type } Ignored for placeholders
+%example-placeholder {}
+
+/// @return { any_type } Ignored for variables
+$example-variable: #000

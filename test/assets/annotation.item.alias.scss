@@ -1,0 +1,29 @@
+////
+/// Test cases for testing @alias
+/// Allowed on functions, mixins and variables.
+/// Multiple: false
+////
+
+/// This is a test function
+/// @group source-group
+@function source() {}
+
+/// This function is an alias of source()
+/// @group group1
+/// @alias source
+@function source-alias-1() {}
+
+/// This function is an alias of source()
+/// @alias source
+/// @group group2 
+/// This is a long group description
+@function source-alias-2() {}
+
+/// Testing for case when aliased item is missing 
+/// (corresponding JSON item should not have "alias" field)
+/// @alias alias-of-nonexisting-item
+@function no-alias() {}
+
+/// Should be ignored for placeholders
+/// @alias source
+%placeholder-#{$color} {}

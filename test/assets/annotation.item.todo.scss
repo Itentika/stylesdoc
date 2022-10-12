@@ -1,0 +1,29 @@
+////
+/// Test cases for testing "todo" annotation
+/// Allowed on functions, mixins, placeholdersб variables and use
+/// Multiple: true
+/// Format: @todo Description of what needs to be done
+////
+
+/// @todo Task 1
+/// @todo Task 2
+@mixin example-mixin () {
+}
+
+/// @todo Task 1
+/// @todo Task 2
+@function example-function() {
+}
+
+/// @todo Task 1
+/// @todo Task 2
+%example-placeholder {
+}
+
+/// @todo Task 1
+/// @todo Task 2
+$example-variable: ();
+
+/// @todo Task 1
+/// @todo Task 2
+@use "src/testing" as test_namespace

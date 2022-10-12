@@ -1,0 +1,66 @@
+/// This is a namespace
+/// @author somebody
+#outer() {
+    .m1 {
+        color: red;
+    }
+
+    /// mixin inside namespace
+    /// @author somebody else
+    .m2 {
+        color: green;
+    }
+
+    /// mixin with parenthesis inside namespace
+    /// @require {css} #other_namespace.outside
+    .m3() {
+        color: blue;
+    }
+}
+
+.other-mixin {
+    color: black;
+}
+
+/// Mixin outside namespace
+#other_namespace.outside {
+    .other-mixin();
+}
+
+/// The following annotations should be parsed on .less #namespace
+/// @access private 
+/// @author Test Author 
+/// @deprecated smth 
+/// @group TestGroup 
+/// @name some name 
+/// @since 1.3.0 new version 
+/// @todo to be done 
+/// @example 
+///   2+3
+#supported() {
+    .inner {
+        color: red;
+    }
+}
+
+/// The following annotations should not be parsed on .less #namespace
+/// @alias alias
+/// @content content
+/// @ignore 
+/// @link "http://example1.com"
+/// @namespace test
+/// @output test
+/// @outputs test
+/// @arg {Number} 1
+/// @prop {some_type} some_name ["default_value"] Should be ignored
+/// @require .other-mixin
+/// @requires .other-mixin
+/// @return { any_type } Should be ignored 
+/// @see .other-mixin
+/// @throw error ignored
+/// @type Number | String
+#ignored() {
+    .inner {
+        color: red;
+    }
+}

@@ -1,0 +1,29 @@
+
+<ul class="Menu">
+  {{ range $index, $el := .Site.Data.data }}
+    <li class="Menu__item">
+      <div class="Menu__head">
+        <span class="shevron"></span><a href="#{{ $el.group }}" class="Menu__link">{{ .group }}</a>
+      </div>
+
+      <ul class="SubMenu">
+        {{ range $subIndex, $subEl := .members }}
+          <li class="SubMenu__item">
+            <div class="Menu__head">
+              <span class="shevron"></span>
+              <a href="#{{ $el.group }}-{{ $subEl.group }}-{{ $index }}" class="SubMenu__link">{{ .group }}{{ if (not (eq (lower (substr .group -1)) "s")) }}s{{ end }}</a>
+            </div>
+            <ul class="SubMenu">
+              {{ range .members }}
+                <li class="SubMenu__item">
+                  <a href="#{{ $el.group }}-{{ $subEl.group }}-{{ .context.name }}" class="SubMenu__link">{{ .context.name }}</a>
+                </li>
+              {{ end }}
+            </ul>
+          </li>
+        {{ end }}
+      </ul>
+
+    </li>
+  {{ end }}
+</ul>

@@ -1,0 +1,20 @@
+////
+/// Test cases for testing "type" annotation
+/// Allowed on variables
+/// Multiple: false
+/// Format: @type Number | String
+////
+
+/// @type Number | String
+/// @type ignored because multiple=falses
+$example-variable: (
+);
+
+/// @type Should be ignored for mixins
+@mixin example-mixin () {}
+
+/// @type Should be ignored for functions
+@function example-function() {}
+
+/// @type Should be ignored for placeholders
+%example-placeholder {}

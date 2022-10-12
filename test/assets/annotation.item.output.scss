@@ -1,0 +1,21 @@
+////
+/// Test cases for testing "output" annotation
+/// Allowed on mixins
+/// Multiple: true
+/// Format: @ouput Some description of what mixin produces
+////
+
+/// @output Some description, part 1
+/// @output Some description, part 2 
+@mixin example-mixin () {
+}
+
+/// @output Should be ignored
+@function example-function() {
+}
+
+/// @output Should be ignored
+%example-placeholder {}
+
+/// @output Should be ignored
+$example-variable: ();

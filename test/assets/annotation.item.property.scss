@@ -1,0 +1,37 @@
+////
+/// Test cases for testing "property" annotation
+/// Allowed on: variables
+/// Multiple: true
+/// Format: @prop {Type} base.default [default] - description
+////
+
+/// @prop {String} base.first ["default"] - description
+/// @prop {Number} base.second [42] - description
+$example-variable: ();
+
+/// Testing default value
+/// @prop base.first-key When type is omitted it is set to "Map" by default
+$example-variable2: ();
+
+/// Testing aliases
+/// @prop {some_type} some_name ["default_value"] - Alias for property
+/// @property {some_type} some_name ["default_value"] Alias for property
+$example-variable2: ();
+
+/// property is not allowed on mixins
+/// @prop {some_type} some_name ["default_value"] Should be ignored
+/// @property {some_type} some_name ["default_value"] Should be ignored
+@mixin example-mixin {
+  margin: 0;
+  padding: 0;
+}
+
+/// property is not allowed on functions
+/// @prop {some_type} some_name ["default_value"] Should be ignored
+/// @property {some_type} some_name ["default_value"] Should be ignored
+@function example-function() {}
+
+/// property is not allowed for placeholders
+/// @prop {some_type} some_name ["default_value"] Should be ignored
+/// @property {some_type} some_name ["default_value"] Should be ignored
+%example-placeholder {}

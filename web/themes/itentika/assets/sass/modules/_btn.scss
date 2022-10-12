@@ -1,0 +1,3 @@
+.Btn {
+  @include Btn(var(--SidebarBtnBGColor));
+}

@@ -1,0 +1,43 @@
+@charset "utf-8";
+
+// ---------- Core Styles ----------
+@import 'core/_normalize';
+@import 'core/_vars';
+@import 'core/_mixins';
+@import 'core/_icons';
+
+// ---------- Modules Styles ----------
+@import 'modules/_badges';
+@import 'modules/_btn';
+@import 'modules/_page';
+@import 'modules/_sidebar';
+@import 'modules/_logo';
+@import 'modules/_search';
+@import 'modules/_actions';
+@import 'modules/_menu';
+@import 'modules/_items';
+@import 'modules/_example';
+
+html {
+  width: 100%;
+  height: 100%;
+  text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: $mainFontSize;
+}
+
+body {
+  background-color: $mainBgColor;
+  color: $mainFontColor;
+  font-family: $mainFontFamily;
+  line-height: normal;
+  margin: 0;
+  min-width: $minWidth;
+}
+
+li + li {
+  margin-top: rem(8);
+}

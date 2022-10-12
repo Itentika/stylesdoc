@@ -1,0 +1,103 @@
+@function rem($pixels, $context: $mainFontSize) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return $pixels / $context * 1rem;
+}
+
+@mixin Title($fs: rem(16), $lh: rem(24), $fw: bold, $color: $mainFontColor) {
+  color: $color;
+  font-size: $fs;
+  line-height: $lh;
+  font-weight: $fw;
+}
+
+@mixin BrandArrow($color: var(--MobileBrandArrowColor)) {
+  content: "";
+  background-color: $color;
+  width: 28px;
+  height: 16px;
+  clip-path: polygon(65% 10%, 100% 0, 100% 100%, 0 29%);
+  position: absolute;
+  z-index: 1;
+}
+
+@mixin Input($bg-color: #fff, $textColor: $mainFontColor, $placeholder-color: #B5B6B7, $height: 56px, $border: none) {
+  background-color: $bg-color;
+  border: $border;
+  border-radius: 8px;
+  box-shadow: none;
+  color: $textColor;
+  font: inherit;
+  font-size: rem(18);
+  line-height: rem(24);
+  height: $height;
+  outline: none;
+
+  &:hover,
+  &.hover,
+  &:focus,
+  &.focus {
+  }
+
+  @include placeholder {
+    color: $placeholder-color;
+    font-size: 18px;
+    font-weight: normal;
+  }
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder { @content; }
+  &:-moz-placeholder { @content; }
+  &::-moz-placeholder { @content; }
+  &:-ms-input-placeholder { @content; }
+}
+
+
+@mixin Btn($bg-color: #fff, $color: #000, $size: 48px, $border: none) {
+  appearance: none;
+  display: inline-grid;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: center;
+  background-color: $bg-color;
+  border: $border;
+  border-radius: 8px;
+  box-shadow: none;
+  color: $color;
+  cursor: pointer;
+  font-size: rem(16);
+  line-height: 0;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  padding: rem(8);
+  min-width: $size;
+  width: auto;
+  min-height: auto;
+  height: $size;
+  white-space: nowrap;
+  outline: none;
+  transition: background-color .15s ease;
+
+  &.hover,
+  &:hover,
+  &.focus,
+  &:focus {
+  }
+
+  &.focus,
+  &:focus {
+  }
+
+  &:disabled,
+  &.disabled {
+
+  }
+}

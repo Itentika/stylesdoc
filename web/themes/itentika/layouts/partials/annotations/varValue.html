@@ -1,0 +1,12 @@
+<div class="Item__snippet">
+  <pre class="Item__code">
+    <code class="language-scss">
+      {{ if (eq (lower .lang) "less") }}@{{ else if ( or (eq (lower .lang) "scss") (eq (lower .lang) "sass")) }}${{ end }}{{ .context.name }}:
+      {{ if .context.value }}
+        {{ .context.value }};
+      {{ else }}
+        not defined;
+      {{ end }}
+    </code>
+  </pre>
+</div>

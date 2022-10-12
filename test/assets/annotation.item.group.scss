@@ -1,0 +1,55 @@
+////
+/// Test cases for testing @group
+/// Allowed on mixins, functions, placeholders, variables and use
+/// Multiple: false
+////
+
+/// @group long name in Lower Case
+/// Group description, line 1
+/// Group description, line 2
+/// @group should be ignored
+@mixin example-mixin {
+}
+
+/// @group test group
+/// @group should be ignored
+@mixin example-mixin {
+}
+
+/// @group test group
+/// @group should be ignored
+@function example-function() {
+}
+
+/// @group test group
+/// @group should be ignored
+%example-placeholder {
+}
+
+/// @group test group
+/// @group should be ignored
+$example-variable: #000
+
+/// @group test group
+/// @group should be ignored
+@use "src/testing" as test_namespace;
+
+
+///
+@mixin default-value() {}
+
+///
+@function default-value() {
+}
+
+///
+%default-value {}
+
+///
+$default-value: #000
+
+/// 
+@use "default" as default_;
+
+/// @group shouldBeInLowerCase
+@mixin lower-case() {}

@@ -1,0 +1,70 @@
+////
+/// Test cases for testing @access
+/// Allowed on mixins, functions, placeholders, variables and use
+/// Multiple: false
+////
+
+/// Testing default value: public
+/// @access default value should be "public"
+@mixin default-value-mixin {
+}
+
+/// Testing public
+/// @access public
+@mixin public-value-mixin {
+}
+
+/// Testing that private accessor can be checked using custom prefix, say "private_"
+@mixin private_mixin {
+}
+
+/// @access private
+/// @access should be ignored
+@mixin example-mixin {
+}
+
+/// @access private
+/// @access should be ignored
+@function example-function() {
+}
+
+/// @access private
+/// @access should be ignored
+%example-placeholder {
+}
+
+/// @access private
+/// @access should be ignored
+$example-variable: #000
+
+/// @access private
+/// @access should be ignored
+@use "src/testing" as test_namespace;
+
+/// Testing autofill of access modifier
+@mixin -private-mixin-autofilled {
+}
+
+/// Testing autofill of access modifier
+@function -private-function-autofilled {
+}
+
+/// Testing autofill of access modifier
+$-private-variable-autofilled: 3px;
+
+/// Testing autofill of access modifier
+%-private-placeholder-autofilled {}
+
+/// Testing autofill of access modifier
+@mixin _private-mixin-2-autofilled {
+}
+
+/// Testing autofill of access modifier
+@function _private-function-2-autofilled {
+}
+
+/// Testing autofill of access modifier
+$_private-variable-2-autofilled: 3px;
+
+/// Testing autofill of access modifier
+%_private-placeholder-2-autofilled {}

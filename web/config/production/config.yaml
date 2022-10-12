@@ -1,0 +1,19 @@
+baseURL: "http://example.org/"
+languageCode: "en-us"
+title: StylesDOC
+theme: iTentika
+
+minify:
+  html:
+    keepComments: false
+    keepWhitespace: false
+  json:
+    keepNumbers: false
+    precision: 0
+  svg:
+    keepComments: false
+    precision: 0
+
+disableKinds: ["sitemap", "taxonomy", "RSS"]
+
+ignoreErrors: ["error-disable-taxonomy"]

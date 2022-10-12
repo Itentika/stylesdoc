@@ -1,0 +1,45 @@
+////
+/// Test cases for testing @see
+/// Allowed on functions, mixins and variables, use, forward
+/// Multiple: true
+////
+
+/// Testing 
+/// @see func-see
+/// @see {mixin} mixin-see
+/// @see $variable-see
+/// @see %placeholder-see
+/// @see non-existing-element
+@function source() {}
+
+/// Testing function
+/// @see {mixin} mixin-see
+/// @see $variable-see
+/// @see %placeholder-see
+/// @see non-existing-element
+/// @group group1
+@function func-see() {};
+
+/// Testing mixin
+/// @see func-see
+/// @see $variable-see
+/// @see %placeholder-see
+/// @see non-existing-element
+/// @group group2
+@mixin mixin-see {};
+
+/// Testing variable
+/// @see func-see
+/// @see {mixin} mixin-see
+/// @see %placeholder-see
+/// @see non-existing-element
+/// @group group3
+$variable-see: value 1;
+
+/// Testing placeholder
+/// @see func-see
+/// @see {mixin} mixin-see
+/// @see $variable-see
+/// @see non-existing-element
+/// @group group4
+%placeholder-see {};

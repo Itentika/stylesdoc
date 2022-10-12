@@ -1,0 +1,29 @@
+////
+/// Test cases for testing @since
+/// Allowed on mixins, functions, placeholders, variables and use
+/// Multiple: true
+/// Describes the version at which the documented item has been implemented or updated
+////
+
+/// @since 1.1.1 - test description
+/// @since 2.2.2 - should be ignored
+@mixin example-mixin {
+}
+
+/// @since 1.1.1 - test description
+/// @since 2.2.2 - should be ignored
+@function example-function() {
+}
+
+/// @since 1.1.1 - test description
+/// @since 2.2.2 - should be ignored
+%example-placeholder {
+}
+
+/// @since 1.1.1 - test description
+/// @since 2.2.2 - should be ignored
+$example-variable: #000
+
+/// @since 1.1.1 - test description
+/// @since 2.2.2 - should be ignored
+@use "src/testing" as test_namespace

@@ -1,0 +1,20 @@
+<head>
+  <title>{{ .Title }}</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  {{- $cssSource := "sass/main.scss" }}
+  {{- $cssTarget := "css/main.css" }}
+  {{- $cssDefaultTheme := "light" }}
+
+  {{- $cssOptions := cond (.Site.IsServer) (dict "targetPath" $cssTarget "enableSourceMap" true) (dict "targetPath" $cssTarget "outputStyle" "compressed") }}
+
+  {{- $style := resources.Get $cssSource | toCSS $cssOptions }}
+
+  <!-- {{- $style := resources.Get $cssSource | toCSS $cssOptions | fingerprint }} -->
+
+  <link rel='stylesheet' rel='preload' type='text/css' href="./css/themes/{{ print .Site.Params.colorScheme | default $cssDefaultTheme }}.css"/>
+  <link rel='stylesheet' rel='preload' type='text/css' href=".{{$style.RelPermalink}}"/>
+</head>
+

@@ -1,0 +1,41 @@
+.Logo {
+  display: inline-block;
+  width: 184px;
+  height: auto;
+  line-height: 0;
+
+  @media screen and (max-width: $tabletWidth) {
+    width: 140px;
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+
+    .Page--wide & {
+      @media screen and (min-width: $tabletWidth) {
+        path {
+          display: none;
+
+          &:nth-child(2),
+          &:nth-child(8) {
+            display: block;
+          }
+
+          &:nth-child(8) {
+            transform: translateX(-58px);
+          }
+        }
+      }
+    }
+  }
+
+  &__item {
+    fill: var(--LogoLettersColor);
+  }
+
+  rect {
+    transform: translateY(-.5px);
+  }
+}

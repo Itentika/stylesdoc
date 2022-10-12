@@ -1,0 +1,44 @@
+/// @group group1
+@function func1($param1) {  
+}
+
+/// @group group1
+@mixin mix1($param2) {  
+}
+
+/// @group group1
+%place1{
+}
+
+/// @group group1
+$var1: 123;
+
+
+/// @group group2
+@function func2() {  
+}
+
+/// @group group2
+@mixin mix2 {  
+}
+
+/// @group group2
+%place2{
+}
+
+/// @group group2
+$var2: 123;
+
+
+
+/// @group group3
+@function func3() {  
+}
+
+/// @group group3
+@mixin mix3 {  
+}
+
+/// @group group3
+%place3{
+}

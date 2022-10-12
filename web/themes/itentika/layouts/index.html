@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{- partial "head.html" . -}}
+  <body class="Page">
+    <div class="Page__main">
+      <div class="Page__box Page__box--sidebar">
+        {{- partial "sidebar.html" . -}}
+      </div>
+
+      <div class="Page__box Page__box--content">
+        <div class="Page__wrapper">
+          {{ range $index, $el := .Site.Data.data }}
+            <div class="Page__section" id="{{ $el.group }}">
+              <h1 class="Page__heading">{{ .group }}</h1>
+
+              {{ range $subbIndex, $subEl := .members }}
+                {{ if ( and (eq $subbIndex 0) ((index (.members) 0).groupDescription) ) }}
+                  <h2 class="Page__description">{{ (index (.members) 0).groupDescription }}</h2>
+                {{ end }}
+              {{ end }}
+
+              {{ range $subIndex, $subEl := .members }}
+                <div class="Page__subSection" id="{{ $el.group }}-{{ $subEl.group }}-{{ $index }}">
+                  <h2 class="Page__subHeading">{{ .group }}{{ if (not (eq (lower (substr .group -1)) "s")) }}s{{ end }}</h2>
+
+                  {{ range .members }}
+                    <div class="Item" id="{{ $el.group }}-{{ $subEl.group }}-{{ .context.name }}">
+                      <h3 class="Item__heading">
+                        <div class="Item__wrapper">
+                          {{ if .context.name }}
+                            <div class="Item__name">
+                              {{ if .access }}
+                                <span class="Item__access">[{{ .access }}]</span>
+                              {{ end }}
+                              {{ .context.name }}
+                            </div>
+                          {{ end }}
+
+                          {{- partial "annotations/badges.html" . -}}
+                        </div>
+                      </h3>
+
+                      {{ if .context.snippet }}
+                        {{ if not (eq .context.snippet "\n") }}
+                          {{- partial "annotations/snippet.html" . -}}
+                        {{ end }}
+                      {{ end }}
+
+                      {{ if not .context.snippet }}
+                        {{ if ( or (eq .context.type "variable") (eq .context.type "cssvar")) }}
+                          {{- partial "annotations/varValue.html" . -}}
+                        {{ end }}
+                      {{ end }}
+
+                      {{ if .description }}
+                        <h3 class="Item__subHeading">Description</h3>
+                        <div class="Item__description">{{ .description }}</div>
+                      {{ end }}
+
+                      {{ if .parameter }}
+                        {{- partial "annotations/parameter.html" . -}}
+                      {{ end }}
+
+                      {{ if .property }}
+                        {{- partial "annotations/property.html" . -}}
+                      {{ end }}
+
+                      {{ if .type }}
+                        <h3 class="Item__subHeading">Type</h3>
+                        <div class="Item__description">{{ .type }}</div>
+                      {{ end }}
+
+                      {{ if .namespace }}
+                        <h3 class="Item__subHeading">Namespace</h3>
+                        <div class="Item__description">{{ .namespace }}</div>
+                      {{ end }}
+
+                      {{ if .example }}
+                        {{- partial "annotations/example.html" . -}}
+                      {{ end }}
+
+                      {{ if .author }}
+                        {{- partial "annotations/author.html" . -}}
+                      {{ end }}
+
+                      {{ if .todo }}
+                        {{- partial "annotations/todo.html" . -}}
+                      {{ end }}
+
+                      {{ if .content }}
+                        <h3 class="Item__subHeading">Content</h3>
+                        <div class="Item__description">{{ .content }}</div>
+                      {{ end }}
+
+                      {{ if .ignore }}
+                        <h3 class="Item__subHeading">Ignores</h3>
+                        <div class="Item__description">{{ .ignore }}</div>
+                      {{ end }}
+
+                      {{ if .link }}
+                        {{- partial "annotations/link.html" . -}}
+                      {{ end }}
+
+                      {{ if .output }}
+                        {{- partial "annotations/output.html" . -}}
+                      {{ end }}
+
+                      {{ if .require }}
+                        {{- partial "annotations/require.html" . -}}
+                      {{ end }}
+
+                      {{ if .return }}
+                        <h3 class="Item__subHeading">Returns</h3>
+                        <div class="Item__description">
+                          {{ if eq .return.type "*" }}
+                            Any type
+                          {{ else }}
+                            {{ .return.type }}
+                          {{ end }}
+                        </div>
+                      {{ end }}
+
+                      {{ if .see }}
+                        {{- partial "annotations/see.html" . -}}
+                      {{ end }}
+
+                      {{ if .alias }}
+                        <h3 class="Item__subHeading">Alias</h3>
+                        <div class="Item__description">
+                          <strong>[{{ .alias.type }}]</strong>
+                          <a href="#{{ .alias.group }}-{{ .alias.type }}-{{ .alias.name }}">{{ .alias.name }}</a>
+                        </div>
+                      {{ end }}
+
+                      {{ if .aliasedGroup }}
+                        {{- partial "annotations/aliasedGroup.html" . -}}
+                      {{ end }}
+
+                      {{ if .usedBy }}
+                        {{- partial "annotations/usedby.html" . -}}
+                      {{ end }}
+
+                      {{ if .throw }}
+                        {{- partial "annotations/throw.html" . -}}
+                      {{ end }}
+
+                    </div>
+                  {{ end }}
+
+                </div>
+              {{ end }}
+
+            </div>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+
+    {{- partial "footer.html" . -}}
+  </body>
+</html>

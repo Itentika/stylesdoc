@@ -1,0 +1,171 @@
+.Page {
+  min-width: $minWidth;
+
+  &--hidden {
+    overflow-y: hidden;
+  }
+
+  &--wide {
+    @media screen and (min-width: $tabletWidth) {
+      .Page__main {
+        padding-left: $shrinkSideBarWidth;
+      }
+
+      .Page__box--sidebar {
+        width: $shrinkSideBarWidth;
+        overflow: hidden;
+      }
+    }
+  }
+
+  &--expanded {
+    @media screen and (max-width: $tabletWidth) {
+      overflow: hidden;
+
+      .Page__box--sidebar {
+        position: fixed;
+      }
+    }
+  }
+
+  &__main {
+    display: flex;
+    align-items: flex-start;
+    padding-left: $sideBarWidth;
+
+    @media screen and (max-width: $smDesktopWidth) {
+      padding-left: $smSideBarWidth;
+    }
+
+    @media screen and (max-width: $tabletWidth) {
+      display: block;
+      padding-left: 0;
+    }
+  }
+
+  &__box {
+    height: 100%;
+
+    &--sidebar {
+      display: flex;
+      flex-direction: column;
+      width: $sideBarWidth;
+      position: fixed;
+      left: 0;
+      z-index: 10;
+
+      @media screen and (max-width: $smDesktopWidth) {
+        width: $smSideBarWidth;
+      }
+
+      @media screen and (max-width: $tabletWidth) {
+        position: sticky;
+        top: 0;
+        width: 100%;
+      }
+
+    }
+
+    &--content {
+      background-color: inherit;
+      flex-grow: 1;
+      position: relative;
+      z-index: 9;
+      overflow-x: hidden;
+    }
+  }
+
+  &__wrapper {
+    padding: rem(45) rem(115) rem(20) rem(115);
+
+    @media screen and (max-width: $maxWidth) {
+      padding: rem(45) rem(65) rem(20) rem(65);
+    }
+
+    @media screen and (max-width: $desktopWidth) {
+      padding: rem(24) rem(40);
+    }
+
+    @media screen and (max-width: $smDesktopWidth) {
+      padding: rem(24);
+    }
+  }
+
+  &__section {
+    & + & {
+      margin-top: rem(40);
+
+      @media screen and (max-width: $desktopWidth) {
+        margin-top: rem(25);
+      }
+    }
+  }
+
+  &__subSection {
+    & + & {
+      margin-top: rem(64);
+
+      @media screen and (max-width: $desktopWidth) {
+        margin-top: rem(42);
+      }
+    }
+  }
+
+  &__heading {
+    @include Title(rem(56), rem(64), bold, var(--PageHeadingColor));
+    margin-bottom: rem(40);
+
+    &:first-letter {
+      text-transform: uppercase;
+    }
+
+    @media screen and (max-width: $desktopWidth) {
+      font-size: rem(40);
+      line-height: rem(48);
+      margin-bottom: rem(25);
+    }
+
+    @media screen and (max-width: $smDesktopWidth) {
+      font-size: rem(34);
+      line-height: rem(42);
+    }
+  }
+
+  &__description {
+    @include Title(rem(28), rem(36), normal);
+    margin-top: rem(-24);
+    margin-bottom: rem(40);
+
+    @media screen and (max-width: $desktopWidth) {
+      font-size: rem(22);
+      line-height: rem(28);
+      margin-top: rem(-16);
+      margin-bottom: rem(25);
+    }
+
+    @media screen and (max-width: $smDesktopWidth) {
+      font-size: rem(18);
+      line-height: rem(24);
+    }
+  }
+
+  &__subHeading {
+    @include Title(rem(40), rem(48));
+    margin-bottom: rem(40);
+
+    &:first-letter {
+      text-transform: uppercase;
+    }
+
+    @media screen and (max-width: $desktopWidth) {
+      font-size: rem(30);
+      line-height: rem(36);
+      margin-bottom: rem(25);
+    }
+
+    @media screen and (max-width: $smDesktopWidth) {
+      font-size: rem(26);
+      line-height: rem(32);
+    }
+  }
+}

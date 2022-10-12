@@ -1,0 +1,1 @@
+export type Getter<T> = (x: T) => any;

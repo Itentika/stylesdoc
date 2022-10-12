@@ -1,0 +1,19 @@
+{
+    "website": {
+        "colorScheme": "green",
+        "watermark": false,
+        "watermarkText": "Developed by ITentika"
+    },
+    "destination": "",
+    "silent": false,
+    "displayAccess": [
+        "public",
+        "private"
+    ],
+    "exclude": [],
+    "privatePrefix": "^[_-]",
+    "autofill": true,
+    "groups": {
+        "undefined": "general"
+    }
+}

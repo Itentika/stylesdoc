@@ -1,0 +1,84 @@
+{
+  "name": "stylesdoc",
+  "version": "0.0.0",
+  "description": "Automatic document generation for LESS/SASS",
+  "author": "itentika",
+  "bin": {
+    "stylesdoc": "./bin/run"
+  },
+  "homepage": "http://gitlab.itentika.ru/alosikhin/autodoc-sass-less",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "repository": "alosikhin/autodoc-sass-less",
+  "files": [
+    "/bin",
+    "/dist"
+  ],
+  "dependencies": {
+    "@oclif/core": "^1",
+    "@oclif/plugin-help": "^5",
+    "@oclif/plugin-not-found": "^2.3.1",
+    "cdocparser": "0.13.0",
+    "piscina": "^3.2.0",
+    "ts-node": "^10.8.2"
+  },
+  "devDependencies": {
+    "@oclif/test": "^2",
+    "@types/chai": "^4",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^16.9.4",
+    "chai": "^4",
+    "esbuild": "^0.14.49",
+    "esbuild-node-tsc": "^1.8.6",
+    "eslint": "^7.32.0",
+    "eslint-config-oclif": "^4",
+    "eslint-config-oclif-typescript": "^1.0.2",
+    "eslint-config-prettier": "^8.5.0",
+    "exec-bin": "^1.0.0",
+    "globby": "^11.1.0",
+    "hugo-installer": "^3.1.0",
+    "mocha": "^9",
+    "nodemon": "^2.0.18",
+    "oclif": "^3",
+    "prettier": "^2.7.1",
+    "typescript": "4.4.3"
+  },
+  "otherDependencies": {
+    "hugo": "0.101.0"
+  },
+  "oclif": {
+    "bin": "stylesdoc",
+    "dirname": "stylesdoc",
+    "commands": "./dist/commands",
+    "plugins": [
+      "@oclif/plugin-help",
+      "@oclif/plugin-not-found"
+    ]
+  },
+  "scripts": {
+    "build": "etsc",
+    "watch": "nodemon",
+    "hugo:srv": "hugo server -s ./web --gc",
+    "hugo:build": "hugo -s ./web --gc",
+    "lint": "eslint . --ext .ts --config .eslintrc",
+    "lint:fix": "eslint . --ext .ts --config .eslintrc --fix",
+    "format:check": "prettier --check .",
+    "format:write": "prettier --write .",
+    "posttest": "npm run lint",
+    "prepack": "npm run build && oclif manifest && oclif readme",
+    "test": "mocha --forbid-only \"test/**/*.test.ts\"",
+    "version": "oclif readme && git add README.md",
+    "postinstall": "hugo-installer --version otherDependencies.hugo --extended --destination node_modules/.bin/hugo"
+  },
+  "engines": {
+    "node": ">=16.14.0"
+  },
+  "bugs": "http://gitlab.itentika.ru/alosikhin/autodoc-sass-less/issues",
+  "keywords": [
+    "less",
+    "sass",
+    "documentation",
+    "generator"
+  ],
+  "types": "dist/index.d.ts"
+}

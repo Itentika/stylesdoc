@@ -1,0 +1,32 @@
+////
+/// Test cases for testing "parameter" annotation
+/// Allowed on mixins, functions
+/// Multiple: true
+/// Format: @arg {type_name} $param_name [default_value] - description
+////
+
+/// @arg {Number} $width
+/// @arg {Number} $height [150] Height with default value 150
+/// @arg {Number | String} $color [#010101] - Color with multiple types 
+@mixin example-mixin ($width, $height, $color) {
+  width: $width;
+  height: $height;
+  background: $color;
+}
+
+/// @arg {Type1} $base [1] Base with default value 1
+/// @arg {Type1 | Type2} $exponent 
+@function example-function($base, $exponent) {
+  $result: 1;
+  @for $_ from 1 through $exponent {
+    $result: $result * $base;
+  }
+  @return $result;
+}
+/// Is not allowed for placeholders
+/// @arg {some_type} $some_name [default_value] - Should be ignored
+%example-placeholder {}
+
+/// Is not allowed for variables
+/// @arg {some_type} $some_name [default_value] - Should be ignored
+$example-variable: ();

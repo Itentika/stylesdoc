@@ -1,0 +1,35 @@
+:root {
+  --SearchBGColor                              : rgba(80, 59, 144, .85);
+  --SearchIconColor                            : #fff;
+  --SearchTextColor                            : #fff;
+
+  --SideBarBG                                  : #7B68B6;
+
+  --LogoBG                                     : #503B90;
+  --LogoLettersColor                           : #fff;
+  --MenuBordersColor                           : rgba(49, 51, 72, .85);
+
+  --MenuItemTextColor                          : #fff;
+  --SubMenuItemTextColor                       : #fff;
+  --SubSubMenuItemTextColor                    : #CDCECF;
+
+  --ActionsTextColor                           : #fff;
+
+  --ShevronClosedColor                         : rgba(255, 255, 255, .5);
+
+  --ShevronOpenedColor                         : #fff;
+
+  --PageHeadingColor                           : #503B90;
+
+  --SnippetBG                                  : #F5F5F5;
+  --SnippetBorderColor                         : #503B90;
+
+  --MobileBrandArrowColor                      : transparent;
+
+  --SidebarBrandArrowColor                     : transparent;
+  --SidebarBottomArrowColor                    : #fff;
+
+  --SidebarBtnBGColor                          : #503B90;
+
+  --LinkColor                                  : #503B90;
+}

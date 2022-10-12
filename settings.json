@@ -1,0 +1,29 @@
+{
+    "website": {
+        "colorScheme": "green",
+        "watermark": true,
+        "watermarkText": "Developed by <a href=\"https://itentika.ru/\">ITentika</a>",
+        "baseUrl": "http://example.com/",
+        "displayAlias": false,
+
+        "trackingCode": "code",
+        "webAnalyticKey": "key",
+        "webAnalyticType": "type"
+    },
+    "destination": "./web/public",
+    "displayAccess": [
+        "public",
+        "private"
+    ],
+    "exclude": [],
+    "autofill": true,
+    "privatePrefix": "^[_-]",
+    "groups": {
+        "undefined": "general"
+    },
+    "sort": [
+        "group<",
+        "path<",
+        "access>"
+    ]
+}

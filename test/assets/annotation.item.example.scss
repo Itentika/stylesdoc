@@ -1,0 +1,45 @@
+////
+/// Test cases for testing @example
+/// Allowed on mixins, functions, placeholders, variables and use
+/// Multiple: true
+////
+
+/// @example html some example
+///   <div>
+///     Something
+///   </div>
+@mixin example-mixin {
+  margin: 0;
+  padding: 0;
+}
+
+///   @example scss - function usage
+///   example-function(2)
+///   result: 3
+@function example-function($counter) {
+  @return @counter + 1;
+}
+
+/// @example scss - placeholder usage
+/// .div, %example-placeholder {
+///   font-weight: bold;
+/// }
+%example-placeholder {}
+
+/// @example scss - variable usage
+/// .div {
+///   border: 1px solid $example-variable;
+/// }
+$example-variable: #000
+
+/// Testing default type
+/// @example
+///   { width: 12}
+@mixin example-mixin {
+  margin: 0;
+  padding: 0;
+}
+
+/// @example scss - use usage
+///   src/file as namespace-name
+@use "src/testing" as test_namespace

@@ -1,0 +1,35 @@
+////
+/// Test cases for testing @link
+/// Allowed on mixins, functions, placeholders, variables and use
+/// Multiple: true
+/// Describes link
+////
+
+/// Testing alias - source
+/// @link http://example1.com
+/// @source http://example2.com test link 2
+@mixin example-mixin {
+}
+
+/// @link "http://example1.com"
+/// @link 'http://example2.com' test link 2
+@mixin example-mixin {
+}
+
+/// @link http://example1.com 
+/// @link http://example2.com test link 2
+@function example-function() {
+}
+
+/// @link http://example1.com 
+/// @link http://example2.com test link 2
+%example-placeholder {
+}
+
+/// @link http://example1.com 
+/// @link http://example2.com test link 2
+$example-variable: #000
+
+/// @link http://example1.com 
+/// @link http://example2.com test link 2
+@use "src/testing" as test_namespace

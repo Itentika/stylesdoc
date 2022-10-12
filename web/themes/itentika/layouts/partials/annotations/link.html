@@ -1,0 +1,12 @@
+<h3 class="Item__subHeading">Links</h3>
+<div class="Item__description">
+  <ul class="Links">
+    {{ range .link }}
+      <li class="Link">
+        <a href="{{ .url }}" target="_blank">
+          {{ if .caption }} {{ .caption }} {{ else }} {{ .url }} {{ end }}
+        </a>
+      </li>
+    {{ end }}
+  </ul>
+</div>

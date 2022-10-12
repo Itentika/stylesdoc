@@ -1,0 +1,9 @@
+baseURL: "http://example.org/"
+languageCode: "en-us"
+title: StylesDOC
+theme: iTentika
+
+params:
+  colorScheme: 'blue'
+  watermark: 'true'
+  watermarkText: 'Developed by <a href=\"https://itentika.ru/\">ITentika</a>'
